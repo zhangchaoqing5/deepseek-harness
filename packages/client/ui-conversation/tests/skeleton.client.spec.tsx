@@ -562,6 +562,7 @@ describe('ConversationRoot resident composer', () => {
     expect(b.slotCalls).toContain('conversation.header.leading')
     expect(b.slotCalls).toContain('conversation.session.header.actions')
     expect(b.slotCalls).toContain('conversation.session.header.utilities')
+    expect(b.slotCalls).toContain('conversation.session.header.corner.actions')
     expect(b.slotCalls).toContain('conversation.session.header.corner')
     expect(b.headerFactory).toHaveBeenCalledWith('contextMenu.button', expect.objectContaining({
       target: { kind: 'sessionHeader', value: { sessionId: SID } }, label: zh['header.more'], size: 'sm',
@@ -590,6 +591,7 @@ describe('ConversationRoot resident composer', () => {
     const header = b.view.container.querySelector('header')
     expect(host).not.toBeNull()
     expect(header?.getAttribute('aria-hidden')).not.toBe('true')
+    expect(b.view.getAllByTestId('view-conversation.session.header.corner.actions')).toHaveLength(1)
     expect(b.view.getByTestId('view-conversation.session.header.corner')).toBeTruthy()
     expect(b.view.queryByRole('tablist')).toBeNull()
     expect(b.slotCalls).not.toContain('conversation.session.header.utilities')

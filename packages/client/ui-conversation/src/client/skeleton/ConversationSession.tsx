@@ -216,6 +216,7 @@ export function ConversationSessionHeader({
           </>
         )}
         <div className={css.headerCorner} data-conversation-header-corner="">
+          {renderSlot('conversation.session.header.corner.actions', {})}
           {renderSlot('conversation.session.header.corner', {})}
         </div>
       </div>
